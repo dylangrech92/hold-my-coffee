@@ -1,0 +1,19 @@
+{
+  "name": "sdlc",
+  "description": "The SDLC handbook: a master map plus nine phase handbooks that make a coding agent work like a battle-scarred senior engineer — evidence over speculation, loud failures, fix causes not symptoms, done means demonstrated.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Fable"
+  },
+  "homepage": "https://github.com/dylangrech92/hold-my-coffee",
+  "repository": "https://github.com/dylangrech92/hold-my-coffee",
+  "license": "MIT",
+  "keywords": [
+    "sdlc",
+    "code-review",
+    "architecture",
+    "best-practices",
+    "senior-engineer",
+    "software-lifecycle"
+  ]
+}

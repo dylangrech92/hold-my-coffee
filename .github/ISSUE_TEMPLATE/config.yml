@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 How contributions work
+    url: https://github.com/dylangrech92/hold-my-coffee/blob/main/CONTRIBUTORS.md
+    about: We accept contributions as issues, not pull requests. Here's why and how.

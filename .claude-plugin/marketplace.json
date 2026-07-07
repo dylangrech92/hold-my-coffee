@@ -1,0 +1,33 @@
+{
+  "name": "hold-my-coffee",
+  "description": "Hold My Coffee — curated skills that make coding agents work like senior engineers and architects.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Dylan Grech",
+    "url": "https://github.com/dylangrech92"
+  },
+  "plugins": [
+    {
+      "name": "sdlc",
+      "source": "./",
+      "description": "The SDLC handbook: a master map plus nine phase handbooks (brainstorm, task breakdown, build/test, debugging, technical review, QA, product review, scalability/stability, UI/UX) that make an agent work like a battle-scarred senior engineer — evidence over speculation, loud failures, fix causes not symptoms, done means demonstrated.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Fable"
+      },
+      "homepage": "https://github.com/dylangrech92/hold-my-coffee",
+      "repository": "https://github.com/dylangrech92/hold-my-coffee",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "sdlc",
+        "code-review",
+        "architecture",
+        "best-practices",
+        "senior-engineer",
+        "software-lifecycle"
+      ],
+      "strict": false
+    }
+  ]
+}
