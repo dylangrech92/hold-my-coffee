@@ -1,5 +1,9 @@
 # ☕ Hold My Coffee
 
+<p align="center">
+  <img src="assets/hold-my-coffee.png" alt="A scowling senior dev in an «easily triggered» shirt holding out his coffee mug, captioned «Hold my Coffee»" width="820">
+</p>
+
 > Curated [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) that make coding agents work like senior engineers and architects — not code generators.
 
 *"Hold my coffee."* — what a senior dev says right before doing it properly.
@@ -20,7 +24,9 @@
 
 ## What is this?
 
-**Hold My Coffee** is a small, opinionated pack of Agent Skills that raise the bar on how a coding agent works. Instead of racing to "make it pass," the agent inherits a senior engineer's instincts: demand evidence, fail loudly, fix root causes, treat every line as a tax, and only call something *done* when it's been demonstrated on the real thing.
+**Hold My Coffee** flips your agent from an eager junior into a methodical — and easily triggered — senior architect. It slows down to understand the system before it touches anything, ships the least code that does the job, has zero patience for code smell, and treats today's anti-pattern as next quarter's incident.
+
+Underneath the attitude, that's a concrete set of instincts: demand evidence over agreement, fail loudly instead of swallowing errors, fix root causes rather than symptoms, treat every line of code as a tax, and only call something *done* once it's been demonstrated on the real thing.
 
 Skills are an open, filesystem-based standard (a folder with a `SKILL.md`), so this pack works across **Claude Code, Codex, Cursor, and 70+ other agents** — one install command, no lock-in.
 
