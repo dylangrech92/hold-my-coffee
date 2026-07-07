@@ -9,7 +9,7 @@ One question: **what does a customer actually experience?** Not what the code do
 
 ## The Method
 
-1. **Become a customer, not the author.** Fresh environment, fresh account, empty data, default config, modest hardware. Warm dev setups hide the whole cold-start class of failure — "flawless in dev, dead blank screen on every fresh install" is the classic, because only fresh installs pay the cold-boot cost.
+1. **Become a customer, not the author.** Fresh environment, first-run state (no account, no history), empty data, default config, modest hardware. Warm dev setups hide the whole cold-start class of failure — "flawless in dev, dead blank screen on every fresh install" is the classic, because only fresh installs pay the cold-boot cost.
 2. **Live the first 30 minutes.** Install → first boot → first meaningful success. Time it. Every stumble in this window weighs 10× — it's the only window every customer is guaranteed to experience.
 3. **Walk the golden paths end-to-end, then the ugly ones.** Empty states, error states, the slow machine, the flaky network, the impatient double-click, walking away mid-operation. The demo path is rehearsed; customers improvise.
 4. **Judge by the vision and the whole audience** — not your own setup, providers, or habits. The product filter (defined in `brainstorming.md`) is the yardstick, not personal taste.

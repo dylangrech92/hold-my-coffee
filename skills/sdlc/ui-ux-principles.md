@@ -5,14 +5,14 @@ description: Use when building or changing anything a user sees or touches — v
 
 # UI/UX Principles
 
-The UI is where all backend honesty either survives or dies. Two commitments govern everything: **the interface never lies about system state**, and **the client never owns the truth.**
+The UI is where the system's honesty about its own state either survives or dies. Two commitments govern everything: **the interface never lies about system state**, and **the display never owns the truth.**
 
 ## Data Flow — the Render Doctrine
 
-- **The API is the only source of data.** Push channels (websockets, events) carry *triggers*, never authoritative payloads: on receiving one, refetch from the API or flip a transient visual flag. A client-side buffer that doesn't exist can't diverge from the server.
-- **Templates render; logic lives elsewhere.** Views/components hold markup and bindings. State, API calls, and business rules live in composables/stores/services. A component with a fetch in it is a lint error in spirit.
-- **The backend formats; the frontend displays.** Timestamps, numbers, locale — formatted server-side by the single authority. Client-side parsing of server data is a second implementation waiting to disagree.
-- **No client-side mirrors of server state.** Refetch is cheap; reconciliation bugs are not.
+- **The authoritative source owns the data.** Push channels (real-time connections, events) carry *triggers*, never authoritative payloads: on one, re-read from the source (an API, a store, the domain model) or flip a transient visual flag. A copy that doesn't exist can't diverge from the truth.
+- **Templates render; logic lives elsewhere.** Views/components hold markup and bindings. State, API calls, and business rules live in dedicated state and service layers. A component that loads its own data is a lint error in spirit.
+- **The data's owner formats; the display shows.** Timestamps, numbers, locale — formatted once by the authority that owns the data (a backend, a domain or service layer). Parsing that data again at the view is a second implementation waiting to disagree.
+- **No display-layer mirror of authoritative state.** Re-reading from the source is cheap; reconciliation bugs are not.
 
 ## State Honesty
 
@@ -26,13 +26,13 @@ The UI is where all backend honesty either survives or dies. Two commitments gov
 
 - **One pattern per problem.** The same interaction solved two ways is a bug in the design system. Reuse the established pattern or explicitly replace it everywhere — never fork it.
 - **Vocabulary is fixed.** UI copy uses the product's exact established names. Every invented synonym is a translation the user pays for.
-- **Theme discipline.** All colors and spacing through design tokens/CSS variables — never hardcoded. Every change verified in both light and dark themes before it's done.
+- **Theme discipline.** All colors and spacing through design tokens/theme variables — never hardcoded. Every change verified in both light and dark themes before it's done.
 - **Hierarchy over decoration.** The most important element is visually primary; progressive disclosure over wall-of-controls. Imagery must demonstrate or inform — decorative noise dilutes the signal.
-- **Guard redirect/navigation logic like auth code** — it usually is. Guards comparing the wrong state (current vs target) produce infinite redirect loops and request floods. Navigation gets the same review rigor as backend logic.
+- **Guard redirect/navigation logic like auth code** — it usually is. Guards comparing the wrong state (current vs target) produce infinite navigation loops and redundant work — redirect loops, request floods. Navigation gets the same review rigor as backend logic.
 
 ## Anti-Patterns
 
-- **Authoritative data over the push channel** — client and server now disagree about the truth; every reconnect is a coin flip.
+- **Authoritative data over a push channel** — display and source now disagree about the truth; every reconnect or missed event is a coin flip.
 - **Optimistic UI without rollback** — showing a success that may not have happened is lying with extra steps.
 - **Silent UI failure** — a failed action with no feedback teaches the user the product is haunted.
 - **Spinner-forever** — an unbounded wait with no status is a dead screen in a costume.

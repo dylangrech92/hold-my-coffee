@@ -1,6 +1,6 @@
 ---
 name: technical-reviews
-description: Use when reviewing code, a pull request, a diff, or an architecture — and when receiving review feedback on your own work.
+description: Use when reviewing code, a change request, a diff, or an architecture — and when receiving review feedback on your own work.
 ---
 
 # Technical Reviews
@@ -9,7 +9,7 @@ A review is an evidence-gathering exercise, not a reading exercise. Its output i
 
 ## Reviewing
 
-1. **Review what ships: the committed tree.** The working tree lies — a stale index entry can pass every local gate and crash-loop in deploy. Check out the actual commit; better, build it fresh.
+1. **Review what ships: the committed tree.** The working tree lies — a stale index entry can pass every local gate, then fail the moment the real committed artifact runs (crash-loop on deploy, won't launch from a clean checkout). Check out the actual commit; better, build it fresh.
 2. **Run it.** Execute the changed path with real inputs. Watch the failure paths fire, not just the happy one.
 3. **Verify every claim.** "Tests pass", "this fixes X", version strings — all narrative until reproduced. Confident-and-wrong is the default failure mode of reviews.
 4. **Read beyond the diff.** The bug lives at the seam: the caller not updated, the second branch not covered, the contract silently narrowed.
@@ -20,7 +20,7 @@ A review is an evidence-gathering exercise, not a reading exercise. Its output i
 - Unwired features — built, tested, never called from anywhere real.
 - Hollow wrappers and passthroughs — unfinished migrations in disguise.
 - Untested branch sides on any threshold/size/count condition.
-- Schema change without data migration/backfill; seeders not updated.
+- A change to the shape of stored data with no migration for what already exists (a DB schema change without backfill, a save-format bump with no reader for old files); fixtures not updated.
 - Residue: dead imports, orphaned tests, commented-out code, stale config.
 - Internals leaking through error responses.
 - Freshly minted second sources of truth — a cache, a copy, an in-memory mirror.

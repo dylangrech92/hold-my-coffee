@@ -15,15 +15,15 @@ QA answers one question with evidence: **does the shipped thing work for a real 
 
 Each answers a question the others cannot. A feature test asserting quality, a scenario asserting string formats, a benchmark used as a gate — all category errors.
 
-**The harness wraps the product — never the other way around.** Production code is never modified to accommodate a test: no skip-flags, no test-only endpoints, no backdoors. An endpoint no real consumer uses is dead weight plus attack surface, built to flatter a suite.
+**Tests wrap the product — never the other way around.** Production code is never modified to accommodate a test: no skip-flags, no test-only branches, no backdoors. A code path no real user reaches is dead weight plus attack surface, built to flatter a suite.
 
 ## Feature Testing
 
 - **Real hot path, zero mocks.** Regressions live *between* components; mocks amputate exactly those seams. Mock only what you genuinely cannot run. Coverage percentage is not a quality metric — path reality is.
 - **Assert downstream effects** — the row written, the message emitted, the file produced — not return values.
 - **Reproduce bugs as tests before fixing.** The failing test is the proof your fix fixes.
-- **Both sides of every threshold.** The branch your test data never triggers is where the production 500 waits. Shape data to cross the boundary, not just approach it.
-- **Build test state from production sources** — the real schema file, the real seeders. Hand-copied DDL and fixtures rot silently, then test a database that no longer exists.
+- **Both sides of every threshold.** The branch your test data never triggers is where the production failure waits. Shape data to cross the boundary, not just approach it.
+- **Build test state from the real production sources** — the actual schema or config the product ships, the real seed data — never hand-copied duplicates. Copies rot silently, and you end up testing a shape the product no longer has.
 - **Portability.** No hardcoded local paths, no environment assumptions. A test that only passes on its author's machine is a rumor.
 - **Proportionality.** Major work earns feature tests; trivial mechanical changes don't. Test-line inflation offsetting production-line reduction is bloat with a green badge.
 - **Delete bad tests.** Gatekeeper tests (a constant contains a substring), brittle tests (break on every touch, no behavior change), tests of artifacts no user receives — all negative value. Deleting them is QA work.
@@ -39,7 +39,7 @@ Each answers a question the others cannot. A feature test asserting quality, a s
 
 ## Test Environments — Hard Rules
 
-- **A live instance is never a test target.** Disposable environments provisioned for the purpose, torn down after. Instances holding real data are off-limits, unconditionally.
+- **Anything holding real user data is never a test target.** Provision a disposable environment for the run, tear it down after. A live service, a user's real profile, the production data store — off-limits, unconditionally.
 - **Every automated test agent gets explicit DO-NOT constraints:** no credential resets, no auth/vault mutation, no destructive shell operations, no deleting files it didn't create. An unstated boundary is a boundary that will be crossed.
 - **Blocked ≠ licensed.** A failed login or a locked resource is a result to report, never an obstacle to defeat.
 

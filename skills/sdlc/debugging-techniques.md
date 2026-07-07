@@ -10,8 +10,8 @@ Debugging replaces narrative with evidence. You are done when you can explain th
 ## The Method
 
 1. **Reproduce first.** No reproduction, no fix. A fix you can't watch fail is a guess. If it fails "sometimes", the reproduction rate is your first measurement.
-2. **Read the actual artifact** — the real error text, log lines, rows, HTTP exchange. Never reason from what the error "probably" says; never trust a version file, status page, or comment over the running system.
-3. **Measure, don't eyeball.** Count the requests. Time the boot. Probe the port. A number ends arguments that impressions start.
+2. **Read the actual artifact** — the real error text, log lines, rows, request/response exchange. Never reason from what the error "probably" says; never trust a version file, status page, or comment over the running system.
+3. **Measure, don't eyeball.** Count the operations — requests, allocations, iterations. Time the boot. Probe the real state — a port, a file, a counter. A number ends arguments that impressions start.
 4. **Trace the behavioral path, not the import path.** What actually executes, in what order, with what data? "Nothing imports this" is not evidence nothing reaches it.
 5. **One written hypothesis at a time.** State it, state the observation that would falsify it, run the check. If the fix works, you must be able to say *why* — a fix that works for unknown reasons is an unexploded bug.
 6. **Bisect.** Halve the search space: across commits, code, data, environments. Fresh environments expose what warm ones hide.

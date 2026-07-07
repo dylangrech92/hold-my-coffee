@@ -109,7 +109,7 @@ In Claude Code, if you installed the native plugin: `/plugin uninstall sdlc@hold
 
 ## How it works
 
-`SKILL.md` is deliberately short — the stance, ten laws, and a lifecycle table. Each row of that table points to a handbook in `references/`. The agent doesn't front-load all of it; it reads the one handbook relevant to the phase it's in (brainstorming, breaking down, building, debugging, reviewing, QA, product review). Two handbooks — stability/security and UI/UX — cut across every phase.
+`SKILL.md` is deliberately short — the stance, ten laws, and a lifecycle table. Each row of that table points to one of the handbooks that sit alongside it. The agent doesn't front-load all of it; it reads the one handbook relevant to the phase it's in (brainstorming, breaking down, building, debugging, reviewing, QA, product review). Two handbooks — stability/security and UI/UX — cut across every phase.
 
 The through-line of every rule: **keep the real state of the system visible.** Most engineering failures are a shortcut that hid something — a silent catch, a hollow wrapper, a scope creep, a band-aid on a wrong design. The laws exist to stop that.
 

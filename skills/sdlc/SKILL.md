@@ -5,7 +5,7 @@ description: Use when starting, planning, building, reviewing, or shipping any p
 
 # The SDLC Handbook
 
-This is the master map. Nine handbooks in `references/` each govern one phase or discipline; this file defines the stance, the laws that bind them, and the handoffs that connect them. The skill is self-contained — everything a coding agent needs to produce proven quality code lives here.
+This is the master map. Nine handbooks alongside this file each govern one phase or discipline; this file defines the stance, the laws that bind them, and the handoffs that connect them. The skill is self-contained — everything a coding agent needs to produce proven quality code lives here.
 
 The lifecycle: **Understand → Brainstorm → Break down → Design/Build/Test → Technical review → QA → Product review → Ship.** Debugging enters whenever reality disagrees with expectation. Two codes cut across every phase: stability/security and UI/UX.
 
@@ -25,7 +25,7 @@ Load this file when work starts; read the handbook named in the lifecycle table 
 
 ## The Laws
 
-1. **Reality over narrative.** Every claim carries evidence. A confident conclusion from partial evidence is worse than "I don't know yet." Grep is not impact analysis; a version file is not what's running; plausible is not true.
+1. **Reality over narrative.** Every claim carries evidence. A confident conclusion from partial evidence is worse than "I don't know yet." Text search is not impact analysis; a version file is not what's running; plausible is not true.
 2. **Every character is a tax.** Code must earn its weight. Net-negative LOC is the success signal; added lines are never progress in themselves.
 3. **Loud failures.** An error that requires archaeology to discover is the same as no error at all. Catch to add context and re-raise — never to suppress. Crash beats corrupt.
 4. **Agency is sacred.** Irreversible, destructive, or out-of-scope actions require explicit consent — truncating data, deleting files you didn't create, closing tickets, silencing scanners, touching auth. When blocked by friction, STOP and report. Never destroy the obstacle to complete the task.
@@ -33,7 +33,7 @@ Load this file when work starts; read the handbook named in the lifecycle table 
 6. **Ask at real forks; never build for the sake of building.** If the spec contradicts your findings, surface the conflict — don't silently resolve it toward your code. If scope wants to grow, propose — don't expand. Batch non-blocking questions.
 7. **Investigation is cheap; shipped mistakes compound.** A million tokens verifying one change is cheap. A hundred tokens shipping a three-month time bomb is expensive.
 8. **Fix causes, not symptoms.** No shims, adapters, wrappers, band-aids, or compat layers. Two patches on one symptom means the design is wrong — rip it back to the root.
-9. **One source of truth per concept.** State derives from the database, contracts live in interfaces, docs live in one place. Every second copy drifts.
+9. **One source of truth per concept.** State lives in one authority (a database, a config file, the domain model), contracts live in interfaces, docs live in one place. Every second copy drifts.
 10. **Done means demonstrated.** Verified by running the real thing on the committed tree — not asserted, not inferred from green checkmarks.
 
 ## The Owner
@@ -44,14 +44,14 @@ Every handbook says "ask the owner" at forks. The owner is whoever holds product
 
 | Phase | Handbook | Exit artifact |
 |---|---|---|
-| Explore the problem | `references/brainstorming.md` | Decision page: problem, approach + why, rejected alternatives, non-goals, batched questions |
-| Slice the work | `references/task-breakdown.md` | Ordered vertical slices, each with a one-sentence done-condition |
-| Design, build, test | `references/software-development.md` | Working increment: zero residue, contracts enforced, feature-tested on the real path |
-| Reality disagrees | `references/debugging-techniques.md` | Root cause with an evidence chain, then back to build |
-| Inspect the change | `references/technical-reviews.md` | Verified findings logged as tickets; explicit verdict |
-| Verify the system | `references/qa-principles.md` | Committed tree proven in a fresh environment |
-| Live the product | `references/product-reviews.md` | First-30-minutes verdict through customer eyes |
-| Cross-cutting | `references/scalability-stability.md`, `references/ui-ux-principles.md` | Applied in every phase above |
+| Explore the problem | `brainstorming.md` | Decision page: problem, approach + why, rejected alternatives, non-goals, batched questions |
+| Slice the work | `task-breakdown.md` | Ordered vertical slices, each with a one-sentence done-condition |
+| Design, build, test | `software-development.md` | Working increment: zero residue, contracts enforced, feature-tested on the real path |
+| Reality disagrees | `debugging-techniques.md` | Root cause with an evidence chain, then back to build |
+| Inspect the change | `technical-reviews.md` | Verified findings logged as tickets; explicit verdict |
+| Verify the system | `qa-principles.md` | Committed tree proven in a fresh environment |
+| Live the product | `product-reviews.md` | First-30-minutes verdict through customer eyes |
+| Cross-cutting | `scalability-stability.md`, `ui-ux-principles.md` | Applied in every phase above |
 
 Phases repeat per part on multi-part features. Never batch parts through one pipeline pass.
 
