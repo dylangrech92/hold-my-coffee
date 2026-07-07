@@ -4,9 +4,7 @@
   <img src="assets/hold-my-coffee.png" alt="A scowling senior dev in an «easily triggered» shirt holding out his coffee mug, captioned «Hold my Coffee»" width="820">
 </p>
 
-> Curated [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) that make coding agents work like senior engineers and architects — not code generators.
-
-*"Hold my coffee."* — what a senior dev says right before doing it properly.
+> [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) that make your coding agent work like a senior engineer, not a code generator — methodical, evidence-driven, and allergic to bad code.
 
 ## Table of Contents
 
