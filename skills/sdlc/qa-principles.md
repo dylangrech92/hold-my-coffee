@@ -30,8 +30,8 @@ Each answers a question the others cannot. A feature test asserting quality, a s
 
 ## Scenario Observation
 
-- **Mimic a real user, or measure nothing.** Implicit natural prompts, real workflows, no steering toward the mechanism under test — a user can't do that, so the test mustn't.
-- **Judge behavior, not strings** — latency, wrong actions, wasted steps, off-topic drift; never literal output formats a real user wouldn't notice.
+- **Mimic a real user, or measure nothing.** Natural inputs and real workflows, no steering toward the mechanism under test — a user can't do that, so the test mustn't.
+- **Judge behavior, not strings** — latency, wrong actions, wasted steps, dead ends; never literal output formats a real user wouldn't notice.
 - **Poll, don't snapshot.** One-shot reads of async results are the top source of false failures. Poll with a deadline.
 - **Instrument before you run.** If the environment tears down after the run, evidence not captured live is gone forever.
 - **Weight critical steps.** An average lets one catastrophic failure hide inside a passing score; gate-worthy steps fail the whole scenario alone.

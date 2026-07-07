@@ -13,6 +13,7 @@ Stable systems share one property: **their state is always derivable and their f
 - **One source of truth per concept.** Every mirror, cache, and copy is a reconciliation bug on a timer. Caches must be disposable: deletable at any moment with zero correctness impact.
 - **Make invalid states unrepresentable at the most structural level you have.** A type, an enum, a constructor invariant, a database constraint (NOT NULL, UNIQUE) — each kills a whole bug class outright, which beats any runtime check hunting the bug down after the fact. Application-level validation is the fallback for rules you couldn't encode structurally.
 - **Represent time unambiguously.** Timezone-aware through one shared authority (UTC end to end is the usual answer). A timezone-less timestamp silently corrupts data the first time it crosses a boundary.
+- **Assume every path runs concurrently with itself.** Check-then-act is a race unless something makes it atomic — a transaction, an atomic primitive, a lock. Two instances, a retry, or an impatient double-click will eventually interleave any two lines you didn't protect.
 
 ## Failure
 
@@ -38,13 +39,14 @@ Stable systems share one property: **their state is always derivable and their f
 - **A change to the shape of persisted data ships with its migration.** Whatever you persist to — a database, files on disk, saved documents — the shape change, the code that moves existing data forward, and any fixtures or seed data ship together, in one unit. A new field with no backfill shows users a hole where their data should be. One-shot migrations get removed after they run.
 - **Data has a lifecycle.** Any store that only grows is a leak. Deletion must actually delete — shadow copies, indexes, reclaimable space included. "Deleted" data that remains readable is a broken promise.
 - **Upgrades are a feature.** New code meets old data on every user's machine. Test the upgrade path like a feature, because it is one.
+- **Every release ships with a way back.** Know the revert path before you deploy — a reversible migration, a forward-fix plan, a restore point. A change you can't undo turns every small bug into an incident.
 - **Before any destructive environment operation** — environment recreate, storage/volume wipe, re-init, "cleanup" — verify the irreplaceable files (keys, secrets, databases) live on storage that survives it.
 
 ## Simplicity Under Load
 
 - **Boring scales.** A table, a queue, a scheduled job — proven parts, in that order of preference. Complex systems that work evolve from simple systems that worked. Engineering cost dominates infra cost; pick the architecture that needs fewer specialists.
 - **Name the ceiling instead of building past it.** Solve today's load; document the known ceiling and upgrade path where you took the shortcut (`# lean: global lock; per-account locks if throughput matters`). Speculative scale-engineering is bloat that also happens to be untested.
-- **No artificial throttles, delays, or budget caps** as complexity management. They mask the real constraint and punish legitimate use. Natural exit conditions only.
+- **No artificial throttles, delays, or caps** as complexity management. They mask the real constraint and punish legitimate use. Natural exit conditions only.
 - **Continuous work runs continuously.** If a background process needs a cooldown to be tolerable, the process is wrong, not the schedule.
 
 ## Anti-Patterns

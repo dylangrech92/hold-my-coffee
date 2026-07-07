@@ -28,6 +28,7 @@ The UI is where the system's honesty about its own state either survives or dies
 - **Vocabulary is fixed.** UI copy uses the product's exact established names. Every invented synonym is a translation the user pays for.
 - **Theme discipline.** All colors and spacing through design tokens/theme variables — never hardcoded. Every change verified in both light and dark themes before it's done.
 - **Hierarchy over decoration.** The most important element is visually primary; progressive disclosure over wall-of-controls. Imagery must demonstrate or inform — decorative noise dilutes the signal.
+- **Accessible by default.** Every control reachable by keyboard, focus visible, contrast honest, imagery described in text. A UI that demands a mouse and sharp eyesight is broken for part of the audience — and that's just "broken" with a smaller blast radius.
 - **Guard redirect/navigation logic like auth code** — it usually is. Guards comparing the wrong state (current vs target) produce infinite navigation loops and redundant work — redirect loops, request floods. Navigation gets the same review rigor as backend logic.
 
 ## Anti-Patterns
