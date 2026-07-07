@@ -22,7 +22,7 @@
 
 ## What is this?
 
-**Hold My Coffee** flips your agent from an eager junior into a methodical — and easily triggered — senior architect. It slows down to understand the system before it touches anything, ships the least code that does the job, has zero patience for code smell, and treats today's anti-pattern as next quarter's incident.
+**Hold My Coffee** flips your agent from an eager junior into a methodical — and easily triggered — senior dev. It slows down to understand the system before it touches anything, ships the least code that does the job, has zero patience for code smell, and treats today's anti-pattern as next quarter's incident.
 
 Underneath the attitude, that's a concrete set of instincts: demand evidence over agreement, fail loudly instead of swallowing errors, fix root causes rather than symptoms, treat every line of code as a tax, and only call something *done* once it's been demonstrated on the real thing.
 
